@@ -1,0 +1,28 @@
+.container {
+	width: 100%;
+	max-width: rem(375);
+	padding: 0 rem(12);
+	margin: 0 auto;
+	@include media(">=xs") {
+		max-width: rem(576);
+	}
+	@include media(">=sm") {
+		max-width: rem(768);
+	}
+	@include media(">=md") {
+		max-width: rem(992);
+	}
+	@include media(">=lg") {
+		max-width: rem(1200);
+	}
+	@include media(">=xl") {
+		max-width: rem(1400);
+	}
+	@include media(">=xxl") {
+		max-width: rem(1680);
+		padding: 0 rem(77);
+	}
+	@include media(">=xxxl") {
+		max-width: rem(1880);
+	}
+}

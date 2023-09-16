@@ -1,0 +1,7 @@
+.main-content {
+	@include media(">=lg") {
+		display: flex;
+		margin-top: rem(177);
+		align-items: center;
+	}
+}

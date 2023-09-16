@@ -1,0 +1,6 @@
+.block {
+	margin: rem(19) 0 rem(25);
+	@include media(">=lg") {
+		margin: rem(42) 0;
+	}
+}

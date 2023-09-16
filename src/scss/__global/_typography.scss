@@ -1,0 +1,22 @@
+h1 {
+	font-family: $font-lora;
+	@include font(36, 46, 500);
+	@include media(">=lg") {
+		@include font(48, 61);
+	}
+}
+h2 {
+	font-family: $font-lora;
+	@include font(18, 23, 700);
+}
+
+p {
+	@include media(">=lg") {
+		@include font(24, 29);
+	}
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}

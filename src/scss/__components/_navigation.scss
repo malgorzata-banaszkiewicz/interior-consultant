@@ -1,0 +1,130 @@
+.navigation {
+	$block: &;
+	display: flex;
+	justify-content: space-between;
+	padding: rem(19) 0 rem(35);
+	@include media(">=lg") {
+		padding: rem(42) 0;
+	}
+	&__link {
+		font-family: $font-crimson-pro;
+		@include font(14, 16);
+		text-transform: uppercase;
+		color: $color-white;
+		background-color: transparent;
+		border: rem(2) solid $color-white;
+		padding: rem(8) rem(8);
+		transition: background-color $default-transition, color $default-transition,
+			font-weight $default-transition;
+		flex-basis: 50%;
+		max-width: 50%;
+		text-align: center;
+		&:hover {
+			background-color: $color-white;
+			color: $color-baltic-sea;
+			font-weight: bold;
+		}
+		&::before {
+			display: block;
+			content: attr(title);
+			font-weight: bold;
+			height: 0;
+			overflow: hidden;
+			visibility: hidden;
+		}
+		@include media(">=xs") {
+			flex-basis: 30%;
+			max-width: 30%;
+		}
+		@include media(">=sm") {
+			flex-basis: 20%;
+			max-width: 20%;
+		}
+		@include media(">=xl") {
+			flex-basis: 10%;
+			max-width: 10%;
+		}
+	}
+	&__nav {
+		display: none;
+		&--open {
+			margin-top: var(--headerHeight);
+			max-height: calc(100% - var(--headerHeight));
+			overflow-y: auto;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: $color-black;
+      z-index: 99;
+			@include font(18, 22);
+			&#{$block}__nav {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#{$block}__nav-list {
+				list-style: none;
+			}
+			#{$block}__nav-list li {
+				margin-bottom: rem(32);
+			}
+		}
+		&-list {
+			list-style: none;
+			gap: rem(90);
+		}
+		&-item {
+			cursor: pointer;
+			text-underline-offset: rem(10);
+			border-bottom: dashed transparent;
+			transition: border-bottom $default-transition;
+			&:hover {
+				border-bottom: dashed $color-white;
+			}
+			&--chosen {
+				text-decoration: underline;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+		@include media(">=lg") {
+			display: flex;
+			justify-content: flex-end;
+			@include font(18, 22, 500);
+			&-list {
+				display: flex;
+			}
+		}
+	}
+}
+
+.mobile-icons {
+	$block: &;
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+	&--close {
+		display: none;
+	}
+	@include media(">=lg") {
+		display: none;
+	}
+	&--open {
+		#{$block} {
+			&--hamburger {
+				display: none;
+			}
+			&--close {
+				display: block;
+			}
+		}
+	}
+	img {
+		width: rem(30);
+		height: rem(30);
+	}
+}
